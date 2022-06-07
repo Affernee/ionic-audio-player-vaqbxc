@@ -1,37 +1,39 @@
-<ion-header>
-  App audio player
+<ion-header align="center">
+  <ion-title> <b>App audio player</b> </ion-title>
   <ion-note
     ><br />
     by yuliankarapetkov</ion-note
   >
 </ion-header>
 
-<audio
-  #player
-  src="http://cld3097web.audiovideoweb.com/va90web25003/companions/Foundations%20of%20Rock/13.01.mp3"
-></audio>
+<div>
+  <audio
+    #player
+    src="http://cld3097web.audiovideoweb.com/va90web25003/companions/Foundations%20of%20Rock/13.01.mp3"
+  ></audio>
 
-<ion-toolbar color="primary" padding>
-  <div class="ion-text-center">
-    <ion-button (click)="play()" size="large" fill="clear" color="light">
-      <ng-container *ngIf="isLoading; else loaded">Loading</ng-container>
+  <ion-toolbar color="dark" padding>
+    <div class="ion-text-center">
+      <ion-button (click)="play()" size="large" fill="clear" color="aqua">
+        <ng-container *ngIf="isLoading; else loaded">Loading</ng-container>
 
-      <ng-template #loaded>
-        <!-- <ion-icon [name]="isPlaying ? 'pause' : 'play'">
+        <ng-template #loaded>
+          <!-- <ion-icon [name]="isPlaying ? 'pause' : 'play'">
                 </ion-icon> -->
-        {{ isPlaying ? 'pause' : 'play' }}
-      </ng-template>
-    </ion-button>
-  </div>
+          {{ isPlaying ? 'pause' : 'play' }}
+        </ng-template>
+      </ion-button>
+    </div>
 
-  <ion-range
-    min="0"
-    [max]="duration"
-    [value]="currentTime"
-    (ionChange)="seek($event)"
-    color="light"
-  >
-    <ion-label color="light" slot="start">{{ currentTime }}</ion-label>
-    <ion-label color="light" slot="end">{{ duration }}</ion-label>
-  </ion-range>
-</ion-toolbar>
+    <ion-range
+      min="0"
+      [max]="duration"
+      [value]="currentTime"
+      (ionChange)="seek($event)"
+      color="aqua"
+    >
+      <ion-label color="light" slot="start">{{ currentTime }}</ion-label>
+      <ion-label color="light" slot="end">{{ duration }}</ion-label>
+    </ion-range>
+  </ion-toolbar>
+</div>
